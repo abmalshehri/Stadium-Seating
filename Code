@@ -1,0 +1,74 @@
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+     
+        private void ShowRevenuebutton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //// Named constants
+                const decimal classA = 16m;
+                const decimal classB = 11m;
+                const decimal classC = 8m;
+
+                // Local variables
+                int seatsA, seatsB, seatsC;
+                decimal incomeclassA;
+                decimal incomeclassB;
+                decimal incomeclassC;
+                decimal incometotal;
+
+                // Get the seats A and seats B and seats C.
+                seatsA = int.Parse(NumberOfClassAtextBox1.Text);
+                seatsB = int.Parse(NumberOfClassBtextBox2.Text);
+                seatsC = int.Parse(NumberOfClassCtextBox3.Text);
+
+                // Calculate the income of classes.
+                incomeclassA = seatsA * classA;
+                incomeclassB = seatsB * classB;
+                incomeclassC = seatsC * classC;
+
+                // Calculate the total of the income.
+                incometotal = incomeclassA + incomeclassB + incomeclassC;
+                //Display the income .
+                OutputClassAlabel8.Text = incomeclassA.ToString("c");
+                OutputClassBlabel9.Text = incomeclassB.ToString("c");
+                OutputClassClabel10.Text = incomeclassC.ToString("c");
+                OutputTotallabel11.Text = incometotal.ToString("c");
+
+            }
+            catch (Exception ex)
+            {
+                //Display an error message .
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void Clearbutton2_Click(object sender, EventArgs e)
+        {
+            //clear the textBoxs and labels.
+            NumberOfClassAtextBox1.Text = "";
+            NumberOfClassBtextBox2.Text="";
+            NumberOfClassCtextBox3.Text = "";
+            OutputClassAlabel8.Text = "";
+            OutputClassBlabel9.Text = "";
+            OutputClassClabel10.Text = "";
+            OutputTotallabel11.Text = "";
+
+
+        }
+
+        private void Exitbutton3_Click(object sender, EventArgs e)
+        {
+            //close the app.
+            this.Close();
+
+        }
+    }
+}
+
